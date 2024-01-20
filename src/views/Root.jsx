@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from '../components/home/header';
-import Searchbars from '../components/home/searchbar';
 
-export default function Root() {
+const Root = () => {
     return (
-        <div className='main-page'>
+        <div>
             <Header />
         </div>
     )
 }
+
+export default Root;
