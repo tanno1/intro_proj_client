@@ -1,19 +1,23 @@
 import { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import React from 'react'
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Root from "./views/Root";
 import './App.css'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Root />,
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Root />,
+//   },
+// ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Root />} />
+        </Routes>
+      </Router>
     </React.StrictMode>
 )
