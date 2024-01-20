@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from '../components/home/header';
+import Home from '../components/home/Home';
 
 const Root = () => {
     return (
         <div>
-            <Header />
+            <Home />
         </div>
     )
 }
