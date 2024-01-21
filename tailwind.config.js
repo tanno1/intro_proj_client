@@ -2,12 +2,16 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['"SF Pro Text"', 'Arial', 'sans-serif']
+      colors: {
+        myGray: '#EDEDE9',
+        myLightGray: '#D6CCC2',
+        myBeige: '#F5EBE0',
+        myTan: '#E3D5CA',
+        myMauve: '#D5BDAF',
       }
     },
   },
