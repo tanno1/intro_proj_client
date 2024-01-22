@@ -1,26 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
 
-const Searchbar= ({ intervalDuration }) => {
+const SearchBar = ({ placeholder }) => {
+  const [inputText, setInputText] = useState('');
 
-    const placeholderWords = ["city", "mountain", "beach", "forest"];
-    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const handleChange = (event) => {
+    setInputText(event.target.value);
+  };
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-          setCurrentWordIndex((prevIndex) => (prevIndex + 1) % placeholderWords.length);
-        }, intervalDuration);
-    
-        return () => clearInterval(intervalId);
-      }, [intervalDuration, placeholderWords.length]);
-    
-      return (
-        <div className="flex items-center justify-center">
-            <input
-                type="text"
-                className="rounded-full p-3 border border-myGray"
-                placeholder={placeholderWords[currentWordIndex]} />
-        </div>
-      )
-}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle form submission logic, e.g., send data to a server
+    console.log(`Submitted: ${inputText}`);
+  };
 
-export default Searchbar;
+  const minInputWidth = 25; // Adjust the minimum width as needed
+  const inputStyle = {
+    width: `${Math.max(inputText.length * 10, minInputWidth)}px`,
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit} className="border-none w-fit">
+        <input
+          type="text"
+          placeholder={placeholder}
+          value={inputText}
+          onChange={handleChange}
+          style={inputStyle}
+          className="border-none focus:outline-none"
+        />
+      </form>
+    </div>
+  );
+};
+
+export default SearchBar;
