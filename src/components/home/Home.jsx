@@ -9,11 +9,11 @@ const Home = () => {
                 <Header />
             </div>
             <div className="flex flex-col h-full items-center justify-center">
-                <h1 className="my-4 text-center">where will this road trip take you?</h1>
+                <h1 className=" text-lg my-4 text-center">where will this road trip take you?</h1>
                 <div className="flex items-center h-fit">
-                    <Searchbar placeholder="start"/>
+                    <Searchbar intervalDuration={2000}/>
                     <h1 className="mx-4">to</h1>
-                    <Searchbar placeholder="end"/>
+                    <Searchbar intervalDuration={3000}/>
                 </div>
             </div>
         </div>
