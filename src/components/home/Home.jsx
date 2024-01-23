@@ -59,8 +59,8 @@ const Home = () => {
             <ReactTypingEffect text={['atlanta', 'houston', 'san francisco', 'san diego']} eraseDelay={5000} typingDelay={1000} />
           </span>
         )}
+        <Outlet />
       </div>
-      <Outlet />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import SearchBar from '../common/SearchBar';
 
 const Activities = () => {
     return (
-        <div>
+        <div className=''>
             <SearchBar />
         </div>
     )
