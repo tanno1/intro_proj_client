@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Header from '../common/Header';
 import SearchBar from '../common/SearchBar';
 import ReactTypingEffect from 'react-typing-effect';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [fromInput, setFromInput] = useState(false);
   const [toInput, setToInput] = useState(false);
   const [form1Submitted, setForm1Submitted]= useState(false);
   const [form2Submitted, setForm2Submitted]= useState(false);
+  const navigate = useNavigate();
 
   const handleFromClick = () => {
     setFromInput(true);
@@ -30,8 +31,8 @@ const Home = () => {
 
   const checkIfBothFormsSubmitted = () => {
     if (form1Submitted && form2Submitted) {
-      navigate('/activites')
-      console.log('ready to do activites')
+      navigate('activities')
+      console.log('ready to do activities')
     }
   }
 

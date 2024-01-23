@@ -10,7 +10,6 @@ const SearchBar = ({ placeholder, onFormSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Submitted: ${inputText}`);
     onFormSubmit(searchTerm);
   };
 
