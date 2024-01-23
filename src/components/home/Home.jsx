@@ -3,6 +3,7 @@ import Header from '../common/Header';
 import SearchBar from '../common/SearchBar';
 import ReactTypingEffect from 'react-typing-effect';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 const Home = () => {
   const [fromInput, setFromInput] = useState(false);
@@ -59,6 +60,7 @@ const Home = () => {
           </span>
         )}
       </div>
+      <Outlet />
     </div>
   );
 };
