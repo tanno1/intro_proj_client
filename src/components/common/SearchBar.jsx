@@ -9,13 +9,15 @@ const SearchBar = ({ placeholder }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic, e.g., send data to a server
     console.log(`Submitted: ${inputText}`);
   };
 
-  const minInputWidth = 25; // Adjust the minimum width as needed
+  const minInputWidth = 37;
   const inputStyle = {
     width: `${Math.max(inputText.length * 10, minInputWidth)}px`,
+    border: 'none',
+    outline: 'none',
+    backgroundColor: 'transparent',
   };
 
   return (

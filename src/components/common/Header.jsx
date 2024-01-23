@@ -3,7 +3,7 @@ import pfp from "./Untitled.jpg"
 
 const Header = () => {
     return (
-        <header className="bg-myLightGray text-black p-4 flex justify-between items-center">
+        <header className="bg-myLightGray text-black p-4 flex justify-between items-center border-b-2 border-myLightGray">
             <div>
                 <h1 className='text-2xl'>routes.ai</h1>
             </div>
