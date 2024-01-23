@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-const SearchBar = ({ placeholder }) => {
+const SearchBar = ({ placeholder, onFormSubmit }) => {
   const [inputText, setInputText] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (event) => {
     setInputText(event.target.value);
@@ -10,6 +11,7 @@ const SearchBar = ({ placeholder }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Submitted: ${inputText}`);
+    onFormSubmit(searchTerm);
   };
 
   const minInputWidth = 37;
@@ -26,8 +28,8 @@ const SearchBar = ({ placeholder }) => {
         <input
           type="text"
           placeholder={placeholder}
-          value={inputText}
-          onChange={handleChange}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
           style={inputStyle}
           className="border-none focus:outline-none"
         />
