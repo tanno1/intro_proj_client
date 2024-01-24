@@ -13,7 +13,7 @@ const SearchBar = ({ placeholder, onFormSubmit }) => {
     onFormSubmit(searchTerm);
   };
 
-  const minInputWidth = 37;
+  const minInputWidth = 47;
   const inputStyle = {
     width: `${Math.max(inputText.length * 10, minInputWidth)}px`,
     border: 'none',
@@ -30,7 +30,7 @@ const SearchBar = ({ placeholder, onFormSubmit }) => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           style={inputStyle}
-          className="border-none focus:outline-none"
+          className="border-none focus:outline-none border-2 rounded-lg"
         />
       </form>
     </div>
