@@ -44,6 +44,7 @@ const Activities = () => {
                 ))}
                 {fromInput ? ( 
                     <SearchBar 
+                        id='tags'
                         onFormSubmit={handleFormSubmit}
                         onInputChange={handleInputChange}
                         value={currentInput}

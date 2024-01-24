@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SearchBar = ({ placeholder, onFormSubmit }) => {
+const SearchBar = ({ id, placeholder, onFormSubmit }) => {
   const [inputText, setInputText] = useState('');
 
   const handleChange = (event) => {
@@ -9,8 +9,10 @@ const SearchBar = ({ placeholder, onFormSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onFormSubmit(inputText);
-    setInputText(''); // Clear inputText after form submission
+    onFormSubmit(inputText, id);
+    if (id === 'tags') {
+      setInputText(''); // Clear inputText after form submission
+    }
   };
 
   const minInputWidth = 48;
