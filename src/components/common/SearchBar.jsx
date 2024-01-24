@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const SearchBar = ({ placeholder, onFormSubmit }) => {
   const [inputText, setInputText] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
 
   const handleChange = (event) => {
     setInputText(event.target.value);
@@ -10,10 +9,11 @@ const SearchBar = ({ placeholder, onFormSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onFormSubmit(searchTerm);
+    onFormSubmit(inputText);
+    setInputText(''); // Clear inputText after form submission
   };
 
-  const minInputWidth = 47;
+  const minInputWidth = 48;
   const inputStyle = {
     width: `${Math.max(inputText.length * 10, minInputWidth)}px`,
     border: 'none',
@@ -27,8 +27,8 @@ const SearchBar = ({ placeholder, onFormSubmit }) => {
         <input
           type="text"
           placeholder={placeholder}
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          value={inputText}
+          onChange={handleChange}
           style={inputStyle}
           className="border-none focus:outline-none border-2 rounded-lg"
         />
