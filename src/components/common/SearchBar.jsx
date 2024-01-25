@@ -17,9 +17,10 @@ const SearchBar = ({ id, placeholder, onFormSubmit }) => {
 
   const minInputWidth = 48;
   const inputStyle = {
-    width: `${Math.max(inputText.length * 10, minInputWidth)}px`,
+    width: `${Math.max(inputText.length * 8, minInputWidth)}px`,
     border: 'none',
     outline: 'none',
+    color: '#EDEDE9',
     backgroundColor: 'transparent',
   };
 
