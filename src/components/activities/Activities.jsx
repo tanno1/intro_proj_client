@@ -2,12 +2,14 @@ import React, { useState, useMemo } from 'react';
 import SearchBar from '../common/SearchBar';
 import ReactTypingEffect from 'react-typing-effect';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Activities = () => {
     const [fromInput, setFromInput] = useState(false);
     const [tags, setTags] = useState([]);
     const [currentInput, setCurrentInput] = useState('');
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log('Updated tags:', tags);
@@ -35,6 +37,11 @@ const Activities = () => {
         const newTags = [...tags];
         newTags.splice(index, 1);
         setTags(newTags);
+    }
+
+    const handleGoButton = (tags) => {
+        console.log({tags})
+        navigate('../search')
     }
 
     const isGoButtonDisabled = useMemo(() => tags.length < 3, [tags]);
@@ -83,7 +90,8 @@ const Activities = () => {
             <div className='w-full flex flex-col items-center justify-center'>
                 <button
                     disabled={isGoButtonDisabled}
-                    className={`bg-myMauve flex justify-center px-6 py-1 rounded-full items-center hover:scale-105 transition-transform duration-100 transform-origin-center ${isGoButtonDisabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer opacity-100 shadow-md'}`}
+                    onClick={handleGoButton}
+                    className={`bg-myMauve flex justify-center px-6 py-1 rounded-full items-center hover:scale-105 transition-transform duration-100 transform-origin-center ${isGoButtonDisabled ? 'cursor-not-allowed' : 'cursor-pointer opacity-100 shadow-md'}`}
                 >
                     go
                 </button>
