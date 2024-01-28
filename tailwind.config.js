@@ -12,6 +12,7 @@ export default {
         myBeige: '#F5EBE0',
         myTan: '#E3D5CA',
         myMauve: '#D5BDAF',
+        myDarkGray: '#333333',
       }
     },
   },

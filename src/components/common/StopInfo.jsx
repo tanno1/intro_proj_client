@@ -3,10 +3,10 @@ import RemoveButton from './RemoveButton';
 
 const StopInfo = () => {
   return (
-    <div id='box' className='w-1/5 h-2/3 border-4 border-black rounded-xl bg-myGray flex flex-col justify-between'>
+    <div id='box' className='w-1/5 h-2/3 rounded-xl bg-myGray flex flex-col justify-between'>
         <div id='boxContents'>
-            <header className='w-full h-12 bg-black flex justify-center items-center rounded-b-xl'>
-                <span id='locationTitle' className='text-white text-2xl'>
+            <header className='w-full h-12 flex justify-center items-center rounded-b-xl'>
+                <span id='locationTitle' className='text-2xl'>
                 Stop Name
                 </span>
             </header>

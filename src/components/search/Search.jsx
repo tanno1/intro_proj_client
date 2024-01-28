@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../common/Header';
 import MapView from '../common/MapView';
 import StopInfo from '../common/StopInfo';
+import StopAdd from '../common/StopAdd';
 
 const Search = () => {
   // const [mapData, setMapData] = useState(null);
@@ -35,6 +36,7 @@ const Search = () => {
       <div className='w-full h-full flex justify-center items-center space-x-6'>
         <StopInfo />
         <MapView />
+        <StopAdd />
       </div>
     </div>
   );
