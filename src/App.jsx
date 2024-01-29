@@ -4,6 +4,7 @@ import Home from './components/home/Home';
 import ErrorPage from './components/common/Errorpage';
 import Activities from './components/activities/Activities';
 import Search from './components/search/Search';
+import MyRoutes from './components/myRoutes/MyRoutes';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         </Route>
         <Route path='search' element={<Search />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path='my-routes' element={<MyRoutes />}/>
       </Routes>
     </Router>
   );
