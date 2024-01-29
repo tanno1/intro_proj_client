@@ -9,6 +9,7 @@ const Activities = () => {
     const [tags, setTags] = useState([]);
     const [currentInput, setCurrentInput] = useState('');
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [isHovering, setIsHovering] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -40,7 +41,7 @@ const Activities = () => {
     }
 
     const handleGoButton = (tags) => {
-        console.log({tags})
+        console.log({ tags })
         navigate('../search')
     }
 
@@ -64,7 +65,7 @@ const Activities = () => {
                             {hoveredIndex === index && (
                                 <div
                                     className="remove-button opacity-0 hover:opacity-100 transition-width duration-500 transform cursor-pointer w-full bg-myTan text-center rounded-lg "
-                                    style={{color:'black', width: `${tag.length * 10}px`}}
+                                    style={{ color: 'black', width: `${tag.length * 10}px` }}
                                     onClick={() => handleRemoveTag(index)}
                                 >
                                     &times;
@@ -89,19 +90,26 @@ const Activities = () => {
             </div>
             <div className='w-full flex flex-col items-center justify-center'>
                 <button
-                    disabled={isGoButtonDisabled}
+                    onMouseEnter={() => {
+                        if (isGoButtonDisabled) {
+                            setIsHovering(true);
+                            console.log('mouse on button');
+                        }
+                    }}
+                    onMouseLeave={() => setIsHovering(false)}
                     onClick={handleGoButton}
-                    className={`bg-myMauve flex justify-center px-6 py-1 rounded-full items-center hover:scale-105 transition-transform duration-100 transform-origin-center ${isGoButtonDisabled ? 'cursor-not-allowed' : 'cursor-pointer opacity-100 shadow-md'}`}
+                    className={'bg-myMauve flex justify-center px-6 py-1 rounded-full items-center hover:scale-105 transition-transform duration-100 transform-origin-center'}
                 >
                     go
                 </button>
-                <span className={`italic my-4 text-sm ${isGoButtonDisabled ? 'opacity-100':'opacity-0'}`}>
-                    enter 3 activites minimum to continue
-                </span>
+                {(isHovering && isGoButtonDisabled) && (
+                    <span className={`italic my-4 text-sm`}>
+                        enter 3 activities minimum to continue
+                    </span>
+                )}
             </div>
-        </div>
 
-        
+        </div>
     )
 }
 
