@@ -1,42 +1,18 @@
 import React, { useState } from 'react';
 import Header from '../common/Header';
 import ReactTypingEffect from 'react-typing-effect';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import NewSearchbar from '../common/NewSearchbar'; // Ensure correct import path
 import GoButton from '../common/GoButton';
 
 const Home = () => {
-  const [fromInput, setFromInput] = useState(false);
-  const [toInput, setToInput] = useState(false);
-  const [form1Submitted, setForm1Submitted] = useState(false);
-  const [form2Submitted, setForm2Submitted] = useState(false);
-  const navigate = useNavigate();
-
-  const handleFromClick = () => {
-    setFromInput(true);
-  };
 
   const handleFormSubmit1 = (searchTerm) => {
     console.log('Form 1 submitted with search term:', searchTerm);
-    setForm1Submitted(true);
-    checkIfBothFormsSubmitted();
-  };
-
-  const handleToClick = () => {
-    setToInput(true);
   };
 
   const handleFormSubmit2 = (searchTerm) => {
     console.log('Form 2 submitted with search term:', searchTerm);
-    setForm2Submitted(true);
-    checkIfBothFormsSubmitted();
-  };
-
-  const checkIfBothFormsSubmitted = () => {
-    if (form1Submitted && form2Submitted) {
-      navigate('activities');
-      console.log('ready to do activities');
-    }
   };
 
   return (
@@ -52,12 +28,13 @@ const Home = () => {
           </span>
           <span>road trip.</span>
         </div>
-        <div id='searchbars' className='flex flex-row space-x-4 p-16 justify-center items-center text-xl'>
+        <div id='searchbars' className='flex flex-row space-x-4 p-16 justify-center items-center text-lg'>
           <NewSearchbar placeholder={'Choose starting point'} onSubmit={handleFormSubmit1} />
           <span >to</span>
-          <NewSearchbar placeholder={'Destination'} onSubmit={handleFormSubmit1} />
+          <NewSearchbar placeholder={'Destination'} onSubmit={handleFormSubmit2} />
           <GoButton />
         </div>
+        <Outlet />
       </div>
     </div>
   );
