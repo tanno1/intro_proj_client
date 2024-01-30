@@ -1,5 +1,5 @@
 import React from 'react'
-import NewSearchbar from '../common/NewSearchbar'
+import NewSearchbar from '../common/newSearchbar'
 
 const Activities = () => {
     
