@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ResetSearchbar from '../common/ResetSearchbar';
 import TagButton from '../common/TagButton';
+import NewSearchbar from '../common/newSearchbar';
+import Header from '../common/Header';
 
 const AddedTag = ({ tag, onRemove }) => {
     return (
@@ -15,6 +17,14 @@ const Activities = ({ searchbarWidth }) => {
     const [addedTags, setAddedTags] = useState([]);
     const [selectedTags, setSelectedTags] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+
+    const handleFormSubmit1 = (searchTerm) => {
+        console.log('Form 1 submitted with search term:', searchTerm);
+    };
+
+    const handleFormSubmit2 = (searchTerm) => {
+        console.log('Form 2 submitted with search term:', searchTerm);
+    };
 
     const tagList = [
         'Adventure',
@@ -52,35 +62,45 @@ const Activities = ({ searchbarWidth }) => {
     };
 
     return (
-        <div id="main-activities-box" className="flex flex-col h-screen bg-myWhite">
-            <div id="searchbar" className="mt-8 mx-auto" style={{ width: searchbarWidth }}>
-                <ResetSearchbar
-                    placeholder={'What interests you?'} 
-                    onSubmit={(searchTerm) => {
-                        handleFormSubmit(searchTerm);
-                        setSearchTerm(''); // clear form after each entry
-                    }} 
-                />
+        <div>
+            <div id="header" className='w-full'>
+                <Header />
             </div>
-            <div id="tags-container" className="mt-4 mx-auto flex flex-wrap gap-2" style={{ maxWidth: searchbarWidth }}>
-                {addedTags.map((tag, index) => (
-                    <AddedTag key={index} tag={tag} onRemove={handleRemoveTag} />
-                ))}
-            </div>
-            <div id="suggested-tags" className="mt-4 mx-auto pb-16" style={{ width: searchbarWidth }}>
-                <div className="flex flex-wrap gap-2">
-                    {tagList.map((tag, index) => (
-                        <TagButton
-                            key={index}
-                            label={tag}
-                            selected={selectedTags.includes(tag)}
-                            onClick={handleTagClick}
-                        />
-                    ))}
+            <div id="main-body" className='flex flex-col items-center justify-between mx-auto space-y-6'>
+                <div className="input-group">
+                    <p className="text-left">Locations</p>
+                    <div className='flex flex-row space-x-2 items-center'>
+                        <NewSearchbar placeholder={'Here'} />
+                        <p className="text-left ml-2">to</p>
+                        <NewSearchbar placeholder={'There'} />
+                    </div>
                 </div>
-            </div>
-            <div id="map-placeholder" className="mt-4 mx-auto flex justify-center items-center" style={{ width: searchbarWidth, height: '400px', borderRadius: '10px', backgroundColor: '#6fd6ff' }}>
-                <span className='font-semibold italic'>MAP PLACEHOLDER</span>
+                <div className="input-group">
+                    <p className="text-left">Dates</p>
+                    <div className='flex flex-row space-x-2 items-center'>
+                        <NewSearchbar placeholder={'mm/dd/yyyy'} />
+                        <p className="text-left ml-2">to</p>
+                        <NewSearchbar placeholder={'mm/dd/yyyy'} />
+                    </div>
+                </div>
+                <div className="input-group">
+                    <p className="text-left">Budget</p>
+                    <div className='flex'>
+                        <NewSearchbar placeholder={'Total ($)'} />
+                    </div>
+                </div>
+                <div className="input-group">
+                    <p className="text-left">Accommodations</p>
+                    <div className='flex'>
+                        <NewSearchbar placeholder={'Camp, Hotel, etc.'} />
+                    </div>
+                </div>
+                <div className="input-group">
+                    <p className="text-left">Interests</p>
+                    <div className='flex'>
+                        <ResetSearchbar placeholder={'What interests you?'} />
+                    </div>
+                </div>
             </div>
         </div>
     );

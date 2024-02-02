@@ -15,7 +15,7 @@ const ResetSearchbar = ({ placeholder, onSubmit }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="flex justify-between w-full max-w-md mx-auto rounded-xl">
+      <form onSubmit={handleSubmit} className="w-full max-w-md rounded-xl">
         <input
           type="text"
           value={searchTerm}

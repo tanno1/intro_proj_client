@@ -12,9 +12,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="activities" element={<Activities searchbarWidth={searchbarWidth} />} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="activities" element={<Activities searchbarWidth={searchbarWidth} />} />
         <Route path='search' element={<Search />} />
         <Route path='my-routes' element={<MyRoutes />} />
         <Route path="*" element={<ErrorPage />} />
