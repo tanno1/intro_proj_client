@@ -3,6 +3,7 @@ import ResetSearchbar from '../common/ResetSearchbar';
 import TagButton from '../common/TagButton';
 import NewSearchbar from '../common/newSearchbar';
 import Header from '../common/Header';
+import CalenderSearch from '../common/CalenderSearch';
 
 const AddedTag = ({ tag, onRemove }) => {
     return (
@@ -66,7 +67,7 @@ const Activities = ({ searchbarWidth }) => {
             <div id="header" className='w-full'>
                 <Header />
             </div>
-            <div id="main-body" className='flex flex-col items-center justify-between mx-auto space-y-6 w-fit'>
+            <div id="main-body" className='flex flex-col items-center justify-center mx-auto space-y-6 w-fit' style={{ height: "calc(100vh - 64px)" }}>
                 <div className="input-group">
                     <p className="text-left font-semibold">Locations</p>
                     <div className='flex flex-row space-x-2 items-center'>
@@ -78,9 +79,9 @@ const Activities = ({ searchbarWidth }) => {
                 <div className="input-group">
                     <p className="text-left font-semibold">Dates</p>
                     <div className='flex flex-row space-x-2 items-center'>
-                        <NewSearchbar placeholder={'mm/dd/yyyy'} />
+                        <CalenderSearch placeholder={'Start Date'} />
                         <p className="text-left ml-2 font-semibold">to</p>
-                        <NewSearchbar placeholder={'mm/dd/yyyy'} />
+                        <CalenderSearch placeholder={'End Date'} />
                     </div>
                 </div>
                 <div className="input-group">
