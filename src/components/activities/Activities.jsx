@@ -66,40 +66,34 @@ const Activities = ({ searchbarWidth }) => {
             <div id="header" className='w-full'>
                 <Header />
             </div>
-            <div id="main-body" className='flex flex-col items-center justify-between mx-auto space-y-6'>
+            <div id="main-body" className='flex flex-col items-center justify-between mx-auto space-y-6 w-fit'>
                 <div className="input-group">
-                    <p className="text-left">Locations</p>
+                    <p className="text-left font-semibold">Locations</p>
                     <div className='flex flex-row space-x-2 items-center'>
                         <NewSearchbar placeholder={'Here'} />
-                        <p className="text-left ml-2">to</p>
+                        <p className="text-left ml-2 font-semibold">to</p>
                         <NewSearchbar placeholder={'There'} />
                     </div>
                 </div>
                 <div className="input-group">
-                    <p className="text-left">Dates</p>
+                    <p className="text-left font-semibold">Dates</p>
                     <div className='flex flex-row space-x-2 items-center'>
                         <NewSearchbar placeholder={'mm/dd/yyyy'} />
-                        <p className="text-left ml-2">to</p>
+                        <p className="text-left ml-2 font-semibold">to</p>
                         <NewSearchbar placeholder={'mm/dd/yyyy'} />
                     </div>
                 </div>
                 <div className="input-group">
-                    <p className="text-left">Budget</p>
-                    <div className='flex'>
-                        <NewSearchbar placeholder={'Total ($)'} />
-                    </div>
+                    <p className="text-left font-semibold">Budget</p>
+                    <NewSearchbar placeholder={'Total ($)'} />
                 </div>
                 <div className="input-group">
-                    <p className="text-left">Accommodations</p>
-                    <div className='flex'>
-                        <NewSearchbar placeholder={'Camp, Hotel, etc.'} />
-                    </div>
+                    <p className="text-left font-semibold">Accommodations</p>
+                    <NewSearchbar placeholder={'Camp, Hotel, etc.'} />
                 </div>
                 <div className="input-group">
-                    <p className="text-left">Interests</p>
-                    <div className='flex'>
-                        <ResetSearchbar placeholder={'What interests you?'} />
-                    </div>
+                    <p className="text-left font-semibold">Interests</p>
+                    <ResetSearchbar placeholder={'What interests you?'} />
                 </div>
             </div>
         </div>
