@@ -71,8 +71,6 @@ const Activities = ({ searchbarWidth }) => {
                     <p className="text-left font-semibold">Dates</p>
                     <div className='flex flex-row space-x-2 items-center'>
                         <CalenderSearch placeholder={'Start Date'} />
-                        <p className="text-left ml-2 font-semibold">to</p>
-                        <CalenderSearch placeholder={'End Date'} />
                     </div>
                 </div>
                 <div className="input-group">
