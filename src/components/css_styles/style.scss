@@ -3,9 +3,9 @@ $nice-dates-color-gray: #999 !default;
 $nice-dates-color-gray-light: #ddd !default;
 $nice-dates-color-accent: $nice-dates-color-gray-dark !default;
 
-$nice-dates-font-size-small: 12px !default;
-$nice-dates-font-size-base: 14px !default;
-$nice-dates-font-size-big: 16px !default;
+$nice-dates-font-size-small: 14px !default;
+$nice-dates-font-size-base: 16px !default;
+$nice-dates-font-size-big: 18px !default;
 
 $nice-dates-cell-width: calc(100% / 7);
 
@@ -273,7 +273,8 @@ $nice-dates-cell-width: calc(100% / 7);
     border-radius: 8px;
     box-shadow: 0 1px 8px rgba(#000, .12);
     margin: 8px 0;
-    max-width:400px;
+    max-width:500px;
+    scale: 90%;
     position: absolute;
     transform-origin: top;
     transform: perspective(1000px);

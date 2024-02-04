@@ -6,6 +6,7 @@ import Header from '../common/Header';
 import CalenderSearch from '../common/CalenderSearch';
 import BudgetDropdown from '../common/BudgetDropdown';
 import AccomodationsDropdown from '../common/AccomodationsDropdown';
+import PeopleDropdown from '../common/PeopleDropdown';
 
 const AddedTag = ({ tag, onRemove }) => {
     return (
@@ -78,6 +79,10 @@ const Activities = ({ searchbarWidth }) => {
                     <BudgetDropdown placeholder={'Total ($)'} />
                 </div>
                 <div className="input-group">
+                    <p className="text-left font-semibold">Attendance</p>
+                    <PeopleDropdown placeholder={'How many people?'} />
+                </div>
+                <div className="input-group">
                     <p className="text-left font-semibold">Accommodations</p>
                     <AccomodationsDropdown placeholder={'Camp, Hotel, etc.'} />
                 </div>
@@ -85,7 +90,7 @@ const Activities = ({ searchbarWidth }) => {
                     <div className='n'>
                         <p className="text-left font-semibold">Interests</p>
                         <ResetSearchbar
-                            placeholder={'What interests you?'}
+                            placeholder={'Activity interests?'}
                             onSubmit={handleFormSubmit}
                             addedTags={addedTags}
                             onRemoveTag={handleRemoveTag}
