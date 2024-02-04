@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-const NewSearchbar = ({ placeholder, onSubmit }) => {
+const NewSearchbar = ({ placeholder, onChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(searchTerm);
+    // Pass the searchTerm to the parent component only when Enter is pressed
+    onChange(searchTerm);
   };
 
   const handleChange = (event) => {

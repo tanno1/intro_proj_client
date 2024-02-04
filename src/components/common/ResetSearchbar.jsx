@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ResetSearchbar = ({ placeholder, onSubmit, addedTags, onRemoveTag }) => {
+const ResetSearchbar = ({ placeholder, onSubmit, addedTags, onRemoveTag, onFocus, onBlur }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = (event) => {
@@ -20,6 +20,8 @@ const ResetSearchbar = ({ placeholder, onSubmit, addedTags, onRemoveTag }) => {
           type="text"
           value={searchTerm}
           onChange={handleChange}
+          onFocus={onFocus} // Call onFocus prop when input gains focus
+          onBlur={onBlur}   // Call onBlur prop when input loses focus
           placeholder={placeholder}
           className="p-2 outline-none rounded-xl bg-myGray flex-grow"
         />

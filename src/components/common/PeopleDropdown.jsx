@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AccomodationsDropdown = ({ placeholder, onSubmit }) => {
+const AccomodationsDropdown = ({ placeholder, onSubmit, onChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedRange, setSelectedRange] = useState('');
@@ -12,12 +12,14 @@ const AccomodationsDropdown = ({ placeholder, onSubmit }) => {
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
+    onChange(event.target.value);
   };
 
   const handleDropdownChange = (range) => {
     setSearchTerm(range);
     setSelectedRange(range);
     setShowDropdown(false);
+    onChange(range);
   };
 
   const toggleDropdown = () => {
