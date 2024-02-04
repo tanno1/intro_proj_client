@@ -1,27 +1,19 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ResetSearchbar from '../common/ResetSearchbar';
-import TagButton from '../common/TagButton';
 import NewSearchbar from '../common/newSearchbar';
 import Header from '../common/Header';
 import CalenderSearch from '../common/CalenderSearch';
 import BudgetDropdown from '../common/BudgetDropdown';
 import AccomodationsDropdown from '../common/AccomodationsDropdown';
 import PeopleDropdown from '../common/PeopleDropdown';
+import GoButton from '../common/GoButton';
 
-const AddedTag = ({ tag, onRemove }) => {
-    return (
-        <div className="flex items-center rounded-full px-3 py-1 text-sm font-semibold bg-blue-500 text-white cursor-pointer hover:scale-105">
-            <span>{tag}</span>
-            <button onClick={() => onRemove(tag)} className="ml-1">&times;</button>
-        </div>
-    );
-};
 
 const Activities = ({ searchbarWidth }) => {
     const [addedTags, setAddedTags] = useState([]);
-    const [selectedTags, setSelectedTags] = useState([]);
-    const [showTags, setShowTags] = useState(false)
     const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate();
 
     const tagList = [
         'Adventure',
@@ -38,6 +30,10 @@ const Activities = ({ searchbarWidth }) => {
         'Art',
         'Architecture'
     ];
+
+    const handleClick = () => {
+        navigate('/search')
+    }
 
     const handleFormSubmit = (searchTerm) => {
         if (searchTerm.trim() !== '') {
@@ -105,7 +101,9 @@ const Activities = ({ searchbarWidth }) => {
                         ))}
                     </div>
                 </div>
-
+                <div id="go">
+                    <GoButton onClick={handleClick} text={'Plan my trip'}/>
+                </div>
             </div>
         </div>
     );

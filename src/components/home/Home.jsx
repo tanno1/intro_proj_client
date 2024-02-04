@@ -36,7 +36,7 @@ const Home = () => {
           </span>
         </div>
         <div id="searchbars" className="flex flex-row space-x-4 p-8 justify-center items-center text-lg">
-          <GoButton onClick={handleTransition} />
+          <GoButton onClick={handleTransition} text={'Go'}/>
         </div>
         <Outlet searchbarWidth='1084px' />
       </div>
