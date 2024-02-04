@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ResetSearchbar = ({ placeholder, onSubmit }) => {
+const ResetSearchbar = ({ placeholder, onSubmit, addedTags, onRemoveTag }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = (event) => {
