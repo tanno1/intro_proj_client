@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { enGB } from 'date-fns/locale';
 import { DateRangePicker, START_DATE, END_DATE } from '@bjarkehs/react-nice-dates';
 import '@bjarkehs/react-nice-dates/build/style.css';
 import arrow from '../common/arrow-50.png';
+import { useTripContext } from '../../context/tripcontext';
 
-const CalenderSearch = ({ onDatesChange }) => {
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+const CalenderSearch = () => {
+  const { startDate, setStartDate, endDate, setEndDate } = useTripContext();
 
-  const handleDatesChange = ({ startDate, endDate }) => {
-    setStartDate(startDate);
-    setEndDate(endDate);
-    onDatesChange(startDate, endDate);
-  };
+  useEffect(() => {
+    console.log('startDate', startDate);
+    console.log('endDate', endDate);
+  }, [startDate, endDate]);
 
   return (
     <DateRangePicker
@@ -24,7 +23,6 @@ const CalenderSearch = ({ onDatesChange }) => {
       minimumLength={1}
       format='dd MMM yyyy'
       locale={enGB}
-      onChange={handleDatesChange}
     >
       {({ startDateInputProps, endDateInputProps, focus }) => (
         <div className='date-range flex flex-row items-center'>
@@ -33,7 +31,7 @@ const CalenderSearch = ({ onDatesChange }) => {
             {...startDateInputProps}
             placeholder='Start date'
           />
-          <img src={arrow} className='h-5 ml-2 mr-2'/>
+          <img src={arrow} className='h-5 ml-2 mr-2' />
           <input
             className={'input p-2 outline-none rounded-xl bg-myGray flex-grow' + (focus === END_DATE ? ' -focused' : '')}
             {...endDateInputProps}

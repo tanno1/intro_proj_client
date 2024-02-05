@@ -8,6 +8,7 @@ import BudgetDropdown from '../common/BudgetDropdown';
 import AccomodationsDropdown from '../common/AccomodationsDropdown';
 import PeopleDropdown from '../common/PeopleDropdown';
 import GoButton from '../common/GoButton';
+import { TripContext } from '../../context/tripcontext';
 
 const Activities = () => {
     const [location1, setLocation1] = useState('');
@@ -47,12 +48,6 @@ const Activities = () => {
         }
         navigate('/search')
     }
-
-    // Callback function to handle selected start and end dates
-    const handleDatesChange = (startDate, endDate) => {
-        setStartDate(startDate);
-        setEndDate(endDate);
-    };
 
     const handleFormSubmit = (searchTerm) => {
         if (searchTerm && searchTerm.trim() !== '') {
@@ -109,9 +104,7 @@ const Activities = () => {
                 <div className="input-group">
                     <p className="text-left font-semibold">Dates</p>
                     <div className='flex flex-row space-x-2 items-center'>
-                        <CalenderSearch
-                            onDatesChange={handleDatesChange}
-                        />
+                        <CalenderSearch />
                     </div>
                 </div>
                 <div className="input-group">

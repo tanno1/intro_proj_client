@@ -7,7 +7,7 @@ const AccomodationsDropdown = ({ placeholder, onSubmit, onChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(searchTerm, selectedRange);
+    onChange(searchTerm, selectedRange);
   };
 
   const handleChange = (event) => {

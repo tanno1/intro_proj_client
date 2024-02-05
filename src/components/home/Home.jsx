@@ -4,6 +4,7 @@ import ReactTypingEffect from 'react-typing-effect';
 import { Outlet, useNavigate } from 'react-router-dom';
 import NewSearchbar from '../common/newSearchbar';
 import GoButton from '../common/GoButton';
+import { TripContext } from '../../context/tripcontext';
 
 const Home = () => {
   const navigate = useNavigate();
