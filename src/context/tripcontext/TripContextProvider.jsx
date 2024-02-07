@@ -13,6 +13,21 @@ export const TripContextProvider = ({ children }) => {
     const [searchTerm, setSearchTerm] = useState(null);
     const [showTagList, setShowTagList] = useState(false);
     const [error, setError] = useState(null);
+    const [tagList, setTagList] = useState([
+        { name: 'Adventure', selected: false },
+        { name: 'Nature', selected: false },
+        { name: 'Food', selected: false },
+        { name: 'Photography', selected: false },
+        { name: 'Culture', selected: false },
+        { name: 'History', selected: false },
+        { name: 'Outdoor', selected: false },
+        { name: 'Hiking', selected: false },
+        { name: 'Beach', selected: false },
+        { name: 'City', selected: false },
+        { name: 'Mountains', selected: false },
+        { name: 'Art', selected: false },
+        { name: 'Architecture', selected: false }
+    ]);
 
     return (
         <TripContext.Provider value={{
@@ -26,7 +41,8 @@ export const TripContextProvider = ({ children }) => {
             addedTags, setAddedTags,
             searchTerm, setSearchTerm,
             showTagList, setShowTagList,
-            error, setError
+            error, setError,
+            tagList, setTagList
         }}>
             {children}
         </TripContext.Provider>
