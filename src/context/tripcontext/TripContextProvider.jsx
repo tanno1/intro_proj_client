@@ -9,7 +9,7 @@ export const TripContextProvider = ({ children }) => {
     const [budget, setBudget] = useState(null);
     const [numPeople, setNumPeople] = useState(null);
     const [accomomodation, setAccomomodation] = useState(null);
-    const [addedTags, setAddedTags] = useState([]);
+    const [addedTags, setAddedTags] = useState(new Set());
     const [searchTerm, setSearchTerm] = useState(null);
     const [showTagList, setShowTagList] = useState(false);
     const [error, setError] = useState(null);

@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ResetSearchbar from '../common/ResetSearchbar';
 import { useTripContext } from '../../context/tripcontext';
 
 const InterestsSearch = () => {
     const { addedTags, setAddedTags, showTagList, setShowTagList, tagList, setTagList} = useTripContext();
     const [searchTerm, setSearchTerm] = useState('');
+    
+    useEffect(() => {
+        console.log('tags', addedTags)
+    }, [addedTags])
 
     const handleFormSubmit = (searchTerm) => {
         if (searchTerm && searchTerm.trim() !== '') {
@@ -48,7 +52,7 @@ const InterestsSearch = () => {
                 />
             </div>
             <div className="flex flex-wrap mt-4 justify-center">
-                {addedTags.map((tag, index) => (
+                {[...addedTags].map((tag, index) => (
                     <div
                         key={index}
                         className={`flex items-center rounded-full px-3 py-1 text-sm font-semibold bg-blue-500 text-white cursor-pointer hover:scale-105 hover:bg-blue-600 mr-2 mb-2`}
