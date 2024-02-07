@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTripContext } from '../../context/tripcontext';
 
-const AccomodationsDropdown = ({ placeholder, onSubmit, onChange }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const AccomodationsDropdown = ({ placeholder }) => {
+  const { accomomodation, setAccomomodation } = useTripContext();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedRange, setSelectedRange] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    console.log('accomomodation', accomomodation)
+  }, [accomomodation])
+
+  const onSubmit = (event) => {
     event.preventDefault();
     onChange(searchTerm, selectedRange);
   };
 
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-    onChange(event.target.value);
-  };
-
   const handleDropdownChange = (range) => {
     setSearchTerm(range);
-    setSelectedRange(range);
-    setShowDropdown(false);
-    onChange(range);
-  };
+    setAccomomodation(range);
+    setShowDropdown(false);  };
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -28,11 +26,11 @@ const AccomodationsDropdown = ({ placeholder, onSubmit, onChange }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="relative flex flex-col justify-between rounded-xl">
+      <form onSubmit={onSubmit} className="relative flex flex-col justify-between rounded-xl">
         <input
           type="text"
           value={searchTerm}
-          onChange={handleChange}
+          onChange={(e) => setAccomomodation(e.target.value)}
           onFocus={toggleDropdown}
           placeholder={placeholder}
           className="w-fit p-2 outline-none rounded-xl bg-myGray relative"

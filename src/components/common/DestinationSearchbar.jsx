@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useTripContext } from '../../context/tripcontext';
 
-const  OriginSeachbar = ({ placeholder }) => {
-  const { origin, setOrigin } = useTripContext();
+const  DestinationSeachbar = ({ placeholder }) => {
+  const { destination, setDestination } = useTripContext();
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
-    console.log('origin', origin)
-  }, [origin])
+    console.log('destination', destination)
+  }, [destination])
 
-  const onSubmit = (event) => {
+  const onSubmit = (event)=> {
     event.preventDefault()
-    setOrigin(inputValue)
+    setDestination(inputValue)
   }
 
   return (
@@ -29,5 +29,5 @@ const  OriginSeachbar = ({ placeholder }) => {
   );
 };
 
-export default OriginSeachbar;
+export default DestinationSeachbar;
  

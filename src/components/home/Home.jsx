@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from '../common/Header';
 import ReactTypingEffect from 'react-typing-effect';
 import { Outlet, useNavigate } from 'react-router-dom';
-import NewSearchbar from '../common/newSearchbar';
 import GoButton from '../common/GoButton';
 import { TripContext } from '../../context/tripcontext';
 

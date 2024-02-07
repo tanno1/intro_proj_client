@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ResetSearchbar from '../common/ResetSearchbar';
-import NewSearchbar from '../common/newSearchbar';
+import NewSearchbar from '../common/DestinationSearchbar';
 import Header from '../common/Header';
 import CalenderSearch from '../common/CalenderSearch';
 import BudgetDropdown from '../common/BudgetDropdown';
@@ -9,6 +9,8 @@ import AccomodationsDropdown from '../common/AccomodationsDropdown';
 import PeopleDropdown from '../common/PeopleDropdown';
 import GoButton from '../common/GoButton';
 import { TripContext } from '../../context/tripcontext';
+import OriginSeachbar from '../common/OriginSearchbar';
+import DestinationSeachbar from '../common/DestinationSearchbar';
 
 const Activities = () => {
     const [location1, setLocation1] = useState('');
@@ -88,16 +90,12 @@ const Activities = () => {
                 <div className="input-group">
                     <p className="text-left font-semibold">Locations</p>
                     <div className='flex flex-row space-x-2 items-center'>
-                        <NewSearchbar
+                        <OriginSeachbar
                             placeholder={'Here'}
-                            value={location1}
-                            onChange={(value) => setLocation1(value)}
                         />
                         <p className="text-left ml-2 font-semibold">to</p>
-                        <NewSearchbar
+                        <DestinationSeachbar
                             placeholder={'There'}
-                            value={location2}
-                            onChange={(value) => setLocation2(value)}
                         />
                     </div>
                 </div>

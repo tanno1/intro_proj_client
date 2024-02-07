@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTripContext } from '../../context/tripcontext';
 
-const BudgetDropdown = ({ placeholder, onSubmit, onChange }) => {
+const BudgetDropdown = ({ placeholder }) => {
+  const { budget, setBudget } = useTripContext();
   const [searchTerm, setSearchTerm] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedRange, setSelectedRange] = useState('');
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    console.log('budget', budget)
+  }, [budget])
+
+  const onSubmit = (event) => {
     event.preventDefault();
-    onChange(searchTerm, selectedRange);
-  };
-
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-    onChange(event.target.value);
   };
 
   const handleDropdownChange = (range) => {
     setSearchTerm(range);
-    setSelectedRange(range);
+    setBudget(range);
     setShowDropdown(false);
-    onChange(range);
   };
 
   const toggleDropdown = () => {
@@ -28,11 +26,11 @@ const BudgetDropdown = ({ placeholder, onSubmit, onChange }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="relative flex flex-col justify-between rounded-xl">
+      <form onSubmit={onSubmit} className="relative flex flex-col justify-between rounded-xl">
         <input
           type="text"
           value={searchTerm}
-          onChange={handleChange}
+          onChange={(e) => setBudget(e.target.value)}
           onFocus={toggleDropdown}
           placeholder={placeholder}
           className="w-fit p-2 outline-none rounded-xl bg-myGray relative"
