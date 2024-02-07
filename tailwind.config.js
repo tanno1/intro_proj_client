@@ -19,7 +19,18 @@ export default {
         myRich: '#00171F',
         myPrussian: '#003459',
         myCerulean: '#007EA7',
-      }
+      },
+      animation: {
+        shake: 'shake 0.45s ease-in-out',
+      },
+      keyframes: {
+        shake: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '25%': { transform: 'translateX(-5px)' },
+          '50%': { transform: 'translateX(5px)' },
+          '75%': { transform: 'translateX(-5px)' },
+        },
+      },
     },
   },
   plugins: [],

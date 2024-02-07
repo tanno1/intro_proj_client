@@ -15,8 +15,8 @@ const InterestsSearch = () => {
             const selectedTagCount = tagList.filter(tag => tag.selected).length;
             if (selectedTagCount < 8) {
                 const trimmedSearchTerm = searchTerm.trim();
-                if (!addedTags.includes(trimmedSearchTerm)) {
-                    setAddedTags(prevTags => [...prevTags, trimmedSearchTerm]);
+                if (!addedTags.has(trimmedSearchTerm)) {
+                    setAddedTags(prevTags => new Set([...prevTags, trimmedSearchTerm]));
                 }
                 setSearchTerm(''); // clear form after each entry
             }
@@ -24,18 +24,21 @@ const InterestsSearch = () => {
     };
 
     const handleTagClick = (tagName) => {
-        if (!addedTags.includes(tagName)) {
+        if (!addedTags.has(tagName)) {
             handleFormSubmit(tagName);
         }
     };
 
     const handleRemoveTag = (tag) => {
-        setAddedTags(prevTags => prevTags.filter(addedTag => addedTag !== tag));
-        setTagList(prevTagList => prevTagList.map(tag => {
-            if (tag.name === searchTerm.trim()) {
-                return { ...tag, selected: false };
+        const updatedTags = new Set(addedTags);
+        updatedTags.delete(tag);
+        setAddedTags(updatedTags);
+
+        setTagList(prevTagList => prevTagList.map(tagItem => {
+            if (tagItem.name === searchTerm.trim()) {
+                return { ...tagItem, selected: false };
             }
-            return tag;
+            return tagItem;
         }));
     };
 
