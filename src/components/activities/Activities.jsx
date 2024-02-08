@@ -21,7 +21,7 @@ const Activities = () => {
             const button = document.getElementById('go-button');
             button.classList.add('animate-shake');
             setTimeout(() => {
-                button.classLIst.remove('animate-shake');
+                button.classList.remove('animate-shake');
             }, 500)
 
             return;
@@ -51,7 +51,7 @@ const Activities = () => {
                     <div className='flex flex-row space-x-2 items-center w-full'>
                         <div className="w-full">
                             <DestinationSeachbar
-                                placeholder={'Here'}
+                                placeholder={'There'}
                             />
                         </div>
                     </div>
