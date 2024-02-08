@@ -10,6 +10,7 @@ import OriginSeachbar from '../common/OriginSearchbar';
 import DestinationSeachbar from '../common/DestinationSearchbar';
 import InterestsSearch from '../common/InterestsSearch';
 import { useTripContext } from '../../context/tripcontext';
+import '../css_styles/AutoCompleteStyle.css';
 
 const Activities = () => {
     const { origin, destination, startDate, endDate, budget, numPeople, accomomodation, addedTags } = useTripContext();
@@ -20,7 +21,7 @@ const Activities = () => {
             const button = document.getElementById('go-button');
             button.classList.add('animate-shake');
             setTimeout(() => {
-                button.classList.remove('animate-shake');
+                button.classLIst.remove('animate-shake');
             }, 500)
 
             return;
@@ -35,18 +36,27 @@ const Activities = () => {
             </div>
             <div id="main-body" className='flex flex-col items-center justify-center mx-auto space-y-6 w-fit' style={{ height: "calc(100vh - 64px)" }}>
                 <p className='text-3xl font-semibold'>Tell me about your trip.</p>
-                <div className="input-group">
-                    <p className="text-left font-semibold">Locations</p>
-                    <div className='flex flex-row space-x-2 items-center'>
-                        <OriginSeachbar
-                            placeholder={'Here'}
-                        />
-                        <p className="text-left ml-2 font-semibold">to</p>
-                        <DestinationSeachbar
-                            placeholder={'There'}
-                        />
+                <div className="input-group w-full">
+                    <p className="text-left font-semibold">Start</p>
+                    <div className='flex flex-row space-x-2 items-center w-full'>
+                        <div className="w-full">
+                            <OriginSeachbar
+                                placeholder={'Here'}
+                            />
+                        </div>
                     </div>
                 </div>
+                <div className="input-group w-full">
+                    <p className="text-left font-semibold">End</p>
+                    <div className='flex flex-row space-x-2 items-center w-full'>
+                        <div className="w-full">
+                            <DestinationSeachbar
+                                placeholder={'Here'}
+                            />
+                        </div>
+                    </div>
+                </div>
+
                 <div className="input-group">
                     <p className="text-left font-semibold">Dates</p>
                     <div className='flex flex-row space-x-2 items-center'>
